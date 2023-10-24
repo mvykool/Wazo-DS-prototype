@@ -37,7 +37,6 @@ const  title  = "Wazoku Design System"
         /* Clip any overflow of the view */
         overflow: clip;
       }
-
       /* The old view is the thumbnail */
       ::view-transition-old(wrapper) {
         /* Maintain the aspect ratio of the view,
@@ -47,7 +46,7 @@ const  title  = "Wazoku Design System"
 
       /* The new view is the full image */
       ::view-transition-new(wrapper) {
-        /* Maintain the aspect ratio of the view,
+       /* Maintain the aspect ratio of the view,
   by growing it to cover the bounds of the element */
         object-fit: cover;
       }
