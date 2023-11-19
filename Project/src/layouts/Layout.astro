@@ -1,51 +1,74 @@
 ---
+import { ViewTransitions } from 'astro:transitions'
+
 interface Props {
-	title: string;
+  title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.css" rel="stylesheet" />
+		<script defer src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body class="bg-gray-50 dark:bg-gray-900">
+    <slot />
+    <style is:global>
+      ::view-transition-old(wrapper),
+      ::view-transition-new(wrapper) {
+        /* Prevent the default animation,
+  so both views remain opacity:1 throughout the transition */
+        animation: none;
+        /* Use normal blending,
+  so the new view sits on top and obscures the old view */
+        mix-blend-mode: normal;
+        /* Make the height the same as the group,
+  meaning the view size might not match its aspect-ratio. */
+        height: 100%;
+        /* Clip any overflow of the view */
+        overflow: clip;
+      }
+
+      /* The old view is the thumbnail */
+      ::view-transition-old(wrapper) {
+        /* Maintain the aspect ratio of the view,
+  by shrinking it to fit within the bounds of the element */
+        object-fit: contain;
+      }
+
+      /* The new view is the full image */
+      ::view-transition-new(wrapper) {
+        /* Maintain the aspect ratio of the view,
+  by growing it to cover the bounds of the element */
+        object-fit: cover;
+      }
+
+      ::view-transition-group(overlay) {
+        z-index: 1;
+      }
+
+      ::view-transition-group(wrapper),
+      ::view-transition-group(cover-image) {
+        z-index: 2;
+      }
+
+      ::view-transition-group(modal-content) {
+        z-index: 3;
+      }
+
+      ::view-transition-old(modal-content):only-child {
+        display: none;
+      }
+    </style>
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
