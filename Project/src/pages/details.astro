@@ -3,13 +3,15 @@ import Layout from '../layouts/Layout.astro'
 import Gallery from '../components/Gallery.astro'
 import Sidebar from '../components/Sidebar.astro'
 import Modal from '../components/Modal.astro'
+import Nav from '../components/Nav.astro';
 ---
 
 <Layout title="Welcome to Astro.">
   <div class="antialiased bg-gray-50 dark:bg-gray-900">
+    <Nav/>
     <Sidebar />
-
     <main class="p-4 md:ml-64 h-auto pt-20">
+      
       <Gallery withoutImage />
     </main>
 
