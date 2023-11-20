@@ -6,6 +6,12 @@ import imageThree from '../../public/3.png'
 import imageFour from '../../public/4.png'
 import imageFive from '../../public/5.png'
 import imageSix from '../../public/6.png'
+import imageSeven from '../../public/7.png'
+import imageEight from '../../public/8.png'
+import imageNine from '../../public/9.png'
+import imageTen from '../../public/10.png'
+import imageEleven from '../../public/11.png'
+import imageTwelve from '../../public/12.png'
 import { Image } from 'astro:assets';
 
 interface Props {
@@ -79,59 +85,71 @@ const { withoutImage } = Astro.props
     </div>
   </div>
   <div class="grid gap-4" style="grid-template-rows: max-content;">
-    <div>
-      <img
-        class="h-auto max-w-full rounded-lg"
-        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg"
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col gap-4">
+      <Image
+        class="h-[70%] w-full rounded-lg"
+        src={imageSeven}
         alt=""
       />
+      <h3 class="text-white font-bold text-2xl px-4">Components</h3>
+        <p class="text-white px-6"> Lorem ipsum, dolor sit amet consectetur.</p>
     </div>
     {
       !withoutImage && (
         <div>
           <div class="bg-white rounded-lg" transition:name="wrapper">
             <a href="/details">
-              <img
-                class="h-auto max-w-full rounded-lg"
-                src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg"
+              <div class="bg-[#2D2F31] rounded-lg flex flex-col gap-4">
+              <Image
+                class="h-[80%] w-full rounded-lg"
+                src={imageNine}
                 alt=""
-                transition:name="cover-image"
               />
+              <h3 class="text-white font-bold text-2xl px-4">Components</h3>
+                <p class="text-white px-6 pb-8"> Lorem ipsum, dolor sit amet consectetur. dolor sit amet consectetur. Lorem ipsum dolor sit amet consectetur.</p>
+            </div>
             </a>
           </div>
         </div>
       )
     }
-    <div>
-      <img
-        class="h-auto max-w-full rounded-lg"
-        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg"
-        alt=""
-        transition:name="image-7"
-      />
-    </div>
+   <div class="bg-[#2D2F31] rounded-lg flex flex-col gap-4">
+    <Image
+      class="h-[70%] w-full rounded-lg"
+      src={imageEight}
+      alt=""
+    />
+    <h3 class="text-white font-bold text-2xl px-4">Support</h3>
+      <p class="text-white px-6"> Lorem ipsum, dolor sit amet consectetur.</p>
+  </div>
   </div>
   <div class="grid gap-4">
-    <div>
-      <img
-        class="h-auto max-w-full rounded-lg"
-        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg"
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col gap-4">
+      <Image
+        class="h-[70%] w-full rounded-lg"
+        src={imageTen}
         alt=""
       />
+      <h3 class="text-white font-bold text-2xl px-4">Patterns</h3>
+        <p class="text-white px-6"> Lorem ipsum, dolor sit amet consectetur.</p>
     </div>
-    <div>
-      <img
-        class="h-auto max-w-full rounded-lg"
-        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg"
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col gap-4">
+      <Image
+        class="h-[80%] w-full rounded-lg"
+        src={imageEleven}
         alt=""
       />
+      <h3 class="text-white font-bold text-2xl px-4">Our Brand</h3>
+        <p class="text-white px-6"> Lorem ipsum, dolor sit amet consectetur.</p>
     </div>
-    <div>
-      <img
-        class="h-auto max-w-full rounded-lg"
-        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg"
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col gap-4">
+      <Image
+        class="h-[80%] w-full rounded-lg"
+        src={imageTwelve}
         alt=""
       />
+      <h3 class="text-white font-bold text-2xl px-4">Unique Design</h3>
+        <p class="text-white px-6"> Lorem ipsum, dolor sit amet consectetur.</p>
     </div>
   </div>
 </div>
