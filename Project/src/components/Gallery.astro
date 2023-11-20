@@ -1,15 +1,91 @@
 ---
-import Banner from '../components/Banner.astro';
+import Banner from './Banner.astro';
+import imageOne from '../../public/1.png'
+import imageTwo from '../../public/2.png'
+import imageThree from '../../public/3.png'
+import imageFour from '../../public/4.png'
+import imageFive from '../../public/5.png'
+import imageSix from '../../public/6.png'
+import { Image } from 'astro:assets';
+
 interface Props {
   withoutImage?: boolean
 }
 
 const { withoutImage } = Astro.props
 ---
+
 <Banner/>
+
+<h2 class="py-5 font-bold text-3xl text-white">Components</h2>
+
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
   <div class="grid gap-4">
-
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col gap-4">
+      <Image
+        class="h-[70%] object-cover w-full rounded-lg"
+        src={imageOne}
+        alt=""
+      />
+      <h3 class="text-white font-bold text-2xl px-4">New Icons</h3>
+        <p class="text-white px-6"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, officiis.</p>
+    </div>
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col gap-4">
+      <Image
+        class="h-[70%] object-cover w-full rounded-lg"
+        src={imageTwo}
+        alt=""
+      />
+      <h3 class="text-white font-bold text-2xl px-4">New Dashboard</h3>
+        <p class="text-white px-6"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, officiis.</p>
+    </div>
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col gap-4">
+      <Image
+        class="h-[70%] object-cover w-full rounded-lg"
+        src={imageThree}
+        alt=""
+      />
+      <h3 class="text-white font-bold text-2xl px-4">New Colors</h3>
+        <p class="text-white px-6"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, officiis.</p>
+    </div>
+  </div>
+  <div class="grid gap-4">
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col gap-4">
+      <Image
+        class="h-[75%] object-cover w-full rounded-lg"
+        src={imageFour}
+        alt=""
+      />
+      <h3 class="text-white font-bold text-2xl px-4">New Colors</h3>
+        <p class="text-white px-6"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, officiis.</p>
+    </div>
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col gap-4">
+      <Image
+        class="h-[75%] object-cover w-full rounded-lg"
+        src={imageFive}
+        alt=""
+      />
+      <h3 class="text-white font-bold text-2xl px-4">New Forms</h3>
+        <p class="text-white px-6"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi, officiis.</p>
+    </div>
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col gap-4">
+      <Image
+        class="h-[50%] object-cover w-full rounded-lg"
+        src={imageSix}
+        alt=""
+      />
+      <h3 class="text-white font-bold text-2xl px-4">Best Place to Work</h3>
+        <p class="text-white px-6"> Lorem ipsum, dolor sit amet consectetur.</p>
+    </div>
+  </div>
+  <div class="grid gap-4" style="grid-template-rows: max-content;">
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-6.jpg"
+        alt=""
+      />
+    </div>
     {
       !withoutImage && (
         <div>
@@ -26,4 +102,36 @@ const { withoutImage } = Astro.props
         </div>
       )
     }
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-7.jpg"
+        alt=""
+        transition:name="image-7"
+      />
+    </div>
+  </div>
+  <div class="grid gap-4">
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-9.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-10.jpg"
+        alt=""
+      />
+    </div>
+    <div>
+      <img
+        class="h-auto max-w-full rounded-lg"
+        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-11.jpg"
+        alt=""
+      />
+    </div>
+  </div>
 </div>

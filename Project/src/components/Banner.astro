@@ -1,6 +1,22 @@
-<div class="h-[40vh] flex bg-gradient-to-bl from-rose-100 to-teal-100 mb-4 rounded-xl">
+<div class="hide h-[40vh] delay-75 flex bg-gradient-to-bl from-rose-100 to-teal-100 mb-4 rounded-xl">
   <div class="flex flex-col gap-7 justify-center items-center w-full">
-      <h1 class="text-4xl font-bold">Wazoku <span class="text-green-500">Design System</span></h1>
-      <p class="text-gray-600 font-semibold">Resources, components, and design guidelines behind Wazoku</p>
+    <h1 class="text-4xl font-bold">Wazoku <span class="text-green-500">Design System</span></h1>
+    <p class="text-gray-600 font-semibold">Resources, components, and design guidelines behind Wazoku</p>
   </div>
 </div>
+
+<style>
+  .hide {
+    opacity: 0;
+    animation: fadeIn 1.2s ease-in-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>

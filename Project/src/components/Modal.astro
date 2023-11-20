@@ -1,107 +1,27 @@
----
-
-const rows = [
-  {
-    customer: 'Neil Sims',
-    email: 'email@windster.com',
-    price: '$320',
-    imageUrl: 'https://flowbite.com/docs/images/people/profile-picture-1.jpg',
-  },
-  {
-    customer: 'Bonnie Green',
-    email: 'email@windster.com',
-    price: '$3467',
-    imageUrl: 'https://flowbite.com/docs/images/people/profile-picture-3.jpg',
-  },
-  {
-    customer: 'Michael Gough',
-    email: 'email@windster.com',
-    price: '$67',
-    imageUrl: 'https://flowbite.com/docs/images/people/profile-picture-2.jpg',
-  },
-  {
-    customer: 'Lana Byrd',
-    email: 'email@windster.com',
-    price: '$367',
-    imageUrl: 'https://flowbite.com/docs/images/people/profile-picture-4.jpg',
-  },
-  {
-    customer: 'Thomes Lean',
-    email: 'email@windster.com',
-    price: '$2367',
-    imageUrl: 'https://flowbite.com/docs/images/people/profile-picture-5.jpg',
-  },
-]
-
----
-
 <div
   class="absolute h-full w-full bg-zinc-800/70 top-0 bottom-0 z-10 flex items-center justify-center"
   transition:name="overlay"
 >
-<button onclick="history.back()" type="button" class="w-full flex items-center justify-center px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700">
-  <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-  </svg>
-  <span>Go back</span>
-</button>
 
-  <div class="max-w-lg bg-white rounded-lg shadow" transition:name="wrapper">
-    <a href="/">
-      <img
-        class="rounded-t-lg"
-        src="https://flowbite.s3.amazonaws.com/docs/gallery/masonry/image-8.jpg"
-        alt=""
-        transition:name="cover-image"
-      />
-    </a>
-    <div class="min-h-[350px]">
-      <div
-        class="modal-content w-full p-4 rounded-lg sm:p-8"
-        transition:name="modal-content"
-      >
-        <div class="flex items-center justify-between mb-4">
-          <h5 class="text-xl font-bold leading-none text-gray-900">
-            Latest Customers
-          </h5>
-          <a href="#" class="text-sm font-medium text-blue-600 hover:underline">
-            View all
-          </a>
-        </div>
-        <div class="flow-root">
-          <ul role="list" class="divide-y divide-gray-200">
-            {
-              rows.map((row) => (
-                <li class="py-3 sm:py-4">
-                  <div class="flex items-center space-x-4">
-                    <div class="flex-shrink-0">
-                      <img
-                        class="w-8 h-8 rounded-full"
-                        src={row.imageUrl}
-                        alt={row.customer}
-                      />
-                    </div>
-                    <div class="flex-1 min-w-0">
-                      <p class="text-sm font-medium text-gray-900 truncate">
-                        {row.customer}
-                      </p>
-                      <p class="text-sm text-gray-500 truncate">{row.email}</p>
-                    </div>
-                    <div class="inline-flex items-center text-base font-semibold text-gray-900">
-                      {row.price}
-                    </div>
-                  </div>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-      </div>
+  <div class=" bg-white rounded-lg shadow w" transition:name="wrapper">
+    <button onclick="history.back()" type="button" class="w-full flex items-center justify-center px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700">
+      <svg class="w-5 h-5 rtl:rotate-180" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
+      </svg>
+      <span>Go back</span>
+    </button>
+    <div class="h-[80vh] w-[90vw]">
+
     </div>
   </div>
 </div>
 
 <style>
+
+  html{
+    overflow: hidden
+  }
+
   .modal-content {
     animation:
       90ms cubic-bezier(0.4, 0, 1, 1) both fade-in,
