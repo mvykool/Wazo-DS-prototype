@@ -19,7 +19,38 @@ interface Props {
 }
 
 const { withoutImage } = Astro.props
+
 ---
+<script>
+  const observer = new IntersectionObserver((entries) => {
+ entries.forEach((entry) => {
+    if(entry.isIntersecting) {
+       entry.target.classList.add('show');
+       
+    }
+ });
+});
+ 
+const hiddenElements = document.querySelectorAll('.hide');
+hiddenElements.forEach((item) => observer.observe(item));
+
+//loading
+
+window.addEventListener("load", () => {
+const loader = document.querySelector(".loader") as HTMLElement;
+loader.classList.add("loader-hidden");
+
+loader.addEventListener("transitionend", () => {
+  if(loader){
+   
+    document.body.removeChild(loader);
+  
+}
+});
+});
+
+
+</script>
 
 <Banner/>
 
@@ -27,7 +58,7 @@ const { withoutImage } = Astro.props
 
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 px-36 py-10">
   <div class="grid gap-4">
-    <div class="bg-[#2D2F31] rounded-lg flex flex-col">
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col hide">
       <Image
         class="h-[80%] object-cover w-full rounded-lg"
         src={imageOne}
@@ -35,7 +66,7 @@ const { withoutImage } = Astro.props
       />
       <h3 class="text-white font-bold text-2xl px-4 py-3">New Icons</h3>
     </div>
-    <div class="bg-[#2D2F31] rounded-lg flex flex-col">
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col hide">
       <Image
         class="h-[80%] object-cover w-full rounded-lg"
         src={imageTwo}
@@ -44,7 +75,7 @@ const { withoutImage } = Astro.props
       <h3 class="text-white font-bold text-2xl px-4 py-3">New Dashboard</h3>
       
     </div>
-    <div class="bg-[#2D2F31] rounded-lg flex flex-col">
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col hide">
       <Image
         class="h-[80%] object-cover w-full rounded-lg"
         src={imageThree}
@@ -55,7 +86,7 @@ const { withoutImage } = Astro.props
     </div>
   </div>
   <div class="grid gap-4">
-    <div class="bg-[#2D2F31] rounded-lg flex flex-col ">
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col hide">
       <Image
         class="h-[85%] object-cover w-full rounded-lg"
         src={imageFour}
@@ -64,7 +95,7 @@ const { withoutImage } = Astro.props
       <h3 class="text-white font-bold text-2xl px-4 py-3">New Colors</h3>
       
     </div>
-    <div class="bg-[#2D2F31] rounded-lg flex flex-col ">
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col hide">
       <Image
         class="h-[85%] object-cover w-full rounded-lg"
         src={imageFive}
@@ -73,7 +104,7 @@ const { withoutImage } = Astro.props
       <h3 class="text-white font-bold text-2xl px-4 py-3">New Forms</h3>
       
     </div>
-    <div class="bg-[#2D2F31] rounded-lg flex flex-col ">
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col hide">
       <Image
         class="h-[60%] object-cover w-full rounded-lg"
         src={imageSix}
@@ -85,7 +116,7 @@ const { withoutImage } = Astro.props
   </div>
 
   <div class="grid gap-4">
-    <div class="bg-[#2D2F31] rounded-lg flex flex-col ">
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col hide">
       <Image
         class="h-[80%] object-cover  w-full rounded-lg"
         src={imageSeven}
@@ -99,7 +130,7 @@ const { withoutImage } = Astro.props
         <div>
           <div transition:name="wrapper">
             <a href="/details">
-              <div class="bg-[#2D2F31] rounded-lg flex flex-col">
+              <div class="bg-[#2D2F31] rounded-lg flex flex-col hide">
               <Image
                 class="h-[50%] object-cover w-full rounded-lg"
                 src={imageNine}
@@ -113,7 +144,7 @@ const { withoutImage } = Astro.props
         </div>
       )
     }
-    <div class="bg-[#2D2F31] rounded-lg flex flex-col ">
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col hide">
     <Image
       class="h-[80%] object-cover w-full rounded-lg"
       src={imageEight}
@@ -125,7 +156,7 @@ const { withoutImage } = Astro.props
   </div>
 
   <div class="grid gap-4">
-    <div class="bg-[#2D2F31] rounded-lg flex flex-col ">
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col hide">
       <Image
         class="h-[80%] w-full rounded-lg"
         src={imageTen}
@@ -134,7 +165,7 @@ const { withoutImage } = Astro.props
       <h3 class="text-white font-bold text-2xl px-4 py-3">Patterns</h3>
        
     </div>
-    <div class="bg-[#2D2F31] rounded-lg flex flex-col ">
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col hide">
       <Image
         class="h-[80%] w-full rounded-lg"
         src={imageEleven}
@@ -143,7 +174,7 @@ const { withoutImage } = Astro.props
       <h3 class="text-white font-bold text-2xl px-4 py-3">Our Brand</h3>
        
     </div>
-    <div class="bg-[#2D2F31] rounded-lg flex flex-col ">
+    <div class="bg-[#2D2F31] rounded-lg flex flex-col hide">
       <Image
         class="h-[80%] w-full rounded-lg"
         src={imageTwelve}
@@ -154,3 +185,16 @@ const { withoutImage } = Astro.props
     </div>
   </div>
 </div>
+
+<style>
+  .hide{
+    opacity: 0;
+    transition: all 1s;
+    filter: blur(1px);
+}
+
+.show{
+    opacity: 1;
+    filter: blur(0);
+}
+</style>
